@@ -1,16 +1,20 @@
-/* ===== BODY: nền, màu chữ, font, cỡ chữ ===== */
+/* ===== CHUNG: reset và nền tảng ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f7f9fc;
   color: #2d3436;
   font-family: Arial, Verdana, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  margin: 0 auto;
-  max-width: 900px;
-  padding: 20px;
+  margin: 0;                      /* bỏ margin mặc định */
+  padding: 0;
+  width: 100%;                    /* bố cục full chiều rộng */
 }
 
-/* ===== ĐỀ MỤC: 3 cấp khác nhau ===== */
+/* ===== ĐỀ MỤC ===== */
 h1 {
   color: #1e3a8a;
   font-size: 2.4em;
@@ -28,6 +32,11 @@ h3 {
   color: #047857;
   font-size: 1.3em;
   font-style: italic;
+}
+
+h4 {
+  color: #6d28d9;
+  font-size: 1.1em;
 }
 
 /* ===== ĐOẠN VĂN ===== */
@@ -61,9 +70,118 @@ li {
   margin-bottom: 8px;
 }
 
-/* ===== MENU (dùng chung cho cả 3 trang) ===== */
+/* ===== HEADER ===== */
+header {
+  background-color: #1e3a8a;      /* nền xanh đậm */
+  color: #ffffff;                 /* chữ trắng */
+  padding: 24px 20px;
+  text-align: center;             /* căn giữa */
+}
+
+header h1 {
+  color: #ffffff;
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+  font-size: 2.2em;
+}
+
+/* ===== NAV: thanh điều hướng ngang ===== */
+nav {
+  background-color: #172554;
+}
+
+nav ul {
+  list-style: none;               /* bỏ dấu chấm đầu dòng */
+  margin: 0;
+  padding: 0;
+  display: flex;                  /* các liên kết nằm hàng ngang */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;                      /* khoảng cách giữa các liên kết */
+}
+
+nav li {
+  margin: 0;
+}
+
 nav a {
-  color: #1e3a8a;
-  margin-right: 15px;
+  display: inline-block;
+  color: #ffffff;
+  padding: 12px 20px;
+  text-decoration: none;
   font-weight: bold;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #c2410c;      /* trang hiện tại / khi rê chuột */
+}
+
+/* ===== MAIN: vùng nội dung chính ===== */
+main {
+  max-width: 900px;
+  padding: 24px 20px;             /* padding hai bên */
+}
+
+/* trang không có sidebar (about, contact): căn giữa main */
+body > main {
+  margin: 0 auto;
+}
+
+main > h2:first-child {
+  margin-top: 0;
+}
+
+/* ===== BỐ CỤC HAI CỘT: main + aside ===== */
+.layout {
+  display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;                 /* căn giữa */
+  padding: 0 20px;
+}
+
+.layout main {
+  flex: 3;                        /* cột chính ~ 70% */
+  padding: 24px 0;
+}
+
+aside {
+  flex: 1;                        /* cột phụ ~ 25% */
+  align-self: flex-start;
+  background-color: #e8eefc;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 24px;
+}
+
+aside h3 {
+  margin-top: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #1f2937;      /* khác màu header */
+  color: #e5e7eb;
+  text-align: center;
+  padding: 20px;
+  margin-top: 24px;
+  clear: both;
+}
+
+footer p {
+  margin: 0 0 8px 0;
+}
+
+footer a {
+  color: #93c5fd;
+}
+
+/* ===== MÀN HÌNH NHỎ: xếp một cột ===== */
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;
+    gap: 0;
+  }
 }
