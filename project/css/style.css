@@ -185,3 +185,29 @@ footer a {
     gap: 0;
   }
 }
+
+/* ===== BÀI 6: các mục trong trang chủ và trang liên hệ ===== */
+main section {
+  margin-bottom: 8px;
+}
+
+main section:first-child > h2 {
+  margin-top: 0;
+}
+
+.photos {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #636e72;
+  text-align: center;
+}
