@@ -1,3 +1,10 @@
+/* =====================================================
+   BÀI 7: TYPOGRAPHY
+   - Font đề mục : Poppins (700, 600)
+   - Font nội dung: Open Sans (400, 600)
+   Hai font được nạp bằng thẻ <link> trong <head> của 3 trang.
+   ===================================================== */
+
 /* ===== CHUNG: reset và nền tảng ===== */
 * {
   box-sizing: border-box;
@@ -6,43 +13,77 @@
 body {
   background-color: #f7f9fc;
   color: #2d3436;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: 'Open Sans', Verdana, sans-serif;   /* font nội dung + font dự phòng */
   font-size: 16px;
-  line-height: 1.6;
-  margin: 0;                      /* bỏ margin mặc định */
+  font-weight: 400;
+  line-height: 1.7;               /* >= 1.6 cho dễ đọc */
+  margin: 0;
   padding: 0;
-  width: 100%;                    /* bố cục full chiều rộng */
+  width: 100%;
 }
 
-/* ===== ĐỀ MỤC ===== */
+/* ===== ĐỀ MỤC: dùng chung font Poppins ===== */
+h1, h2, h3, h4 {
+  font-family: 'Poppins', Arial, sans-serif;       /* font đề mục + font dự phòng */
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+/* Cỡ chữ giảm dần theo tỉ lệ, độ đậm giảm dần: tạo phân cấp rõ ràng */
 h1 {
   color: #1e3a8a;
-  font-size: 2.4em;
+  font-size: 2.5em;
+  font-weight: 700;
   border-bottom: 3px solid #1e3a8a;
   padding-bottom: 8px;
 }
 
 h2 {
   color: #c2410c;
-  font-size: 1.7em;
-  margin-top: 30px;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin: 1.6em 0 0.5em;
 }
 
 h3 {
   color: #047857;
-  font-size: 1.3em;
-  font-style: italic;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 1.4em 0 0.4em;
 }
 
 h4 {
   color: #6d28d9;
-  font-size: 1.1em;
+  font-size: 1.15em;
+  font-weight: 600;
+  margin: 1.2em 0 0.4em;
 }
 
-/* ===== ĐOẠN VĂN ===== */
+/* ===== ĐOẠN VĂN: dễ đọc ===== */
 p {
-  line-height: 1.8;
-  margin: 0 0 16px 0;
+  line-height: 1.7;
+  margin: 0 0 1em 0;
+}
+
+main p {
+  max-width: 70ch;                /* giới hạn độ dài dòng, không căng sát hai mép */
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* ===== LIÊN KẾT: màu riêng + hover ===== */
+a {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #c2410c;
+  text-decoration-thickness: 2px;
 }
 
 /* ===== HÌNH ẢNH ===== */
@@ -56,7 +97,7 @@ img {
   background-color: #ffffff;
 }
 
-/* ===== DANH SÁCH ===== */
+/* ===== DANH SÁCH: khoảng cách đẹp hơn ===== */
 ul {
   list-style-type: square;
   padding-left: 30px;
@@ -67,15 +108,16 @@ ol {
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
 }
 
 /* ===== HEADER ===== */
 header {
-  background-color: #1e3a8a;      /* nền xanh đậm */
-  color: #ffffff;                 /* chữ trắng */
+  background-color: #1e3a8a;
+  color: #ffffff;
   padding: 24px 20px;
-  text-align: center;             /* căn giữa */
+  text-align: center;
 }
 
 header h1 {
@@ -83,7 +125,6 @@ header h1 {
   border-bottom: none;
   margin: 0;
   padding: 0;
-  font-size: 2.2em;
 }
 
 /* ===== NAV: thanh điều hướng ngang ===== */
@@ -92,13 +133,13 @@ nav {
 }
 
 nav ul {
-  list-style: none;               /* bỏ dấu chấm đầu dòng */
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;                  /* các liên kết nằm hàng ngang */
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;                      /* khoảng cách giữa các liên kết */
+  gap: 10px;
 }
 
 nav li {
@@ -110,21 +151,22 @@ nav a {
   color: #ffffff;
   padding: 12px 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
-  background-color: #c2410c;      /* trang hiện tại / khi rê chuột */
+  background-color: #c2410c;
+  color: #ffffff;                 /* giữ chữ trắng khi hover */
 }
 
 /* ===== MAIN: vùng nội dung chính ===== */
 main {
   max-width: 900px;
-  padding: 24px 20px;             /* padding hai bên */
+  padding: 24px 20px;
 }
 
-/* trang không có sidebar (about, contact): căn giữa main */
 body > main {
   margin: 0 auto;
 }
@@ -138,17 +180,17 @@ main > h2:first-child {
   display: flex;
   gap: 24px;
   max-width: 1100px;
-  margin: 0 auto;                 /* căn giữa */
+  margin: 0 auto;
   padding: 0 20px;
 }
 
 .layout main {
-  flex: 3;                        /* cột chính ~ 70% */
+  flex: 3;
   padding: 24px 0;
 }
 
 aside {
-  flex: 1;                        /* cột phụ ~ 25% */
+  flex: 1;
   align-self: flex-start;
   background-color: #e8eefc;
   border-radius: 10px;
@@ -162,7 +204,7 @@ aside h3 {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: #1f2937;      /* khác màu header */
+  background-color: #1f2937;
   color: #e5e7eb;
   text-align: center;
   padding: 20px;
@@ -178,15 +220,11 @@ footer a {
   color: #93c5fd;
 }
 
-/* ===== MÀN HÌNH NHỎ: xếp một cột ===== */
-@media (max-width: 700px) {
-  .layout {
-    flex-direction: column;
-    gap: 0;
-  }
+footer a:hover {
+  color: #ffffff;                 /* hover trong footer: chuyển sang trắng */
 }
 
-/* ===== BÀI 6: các mục trong trang chủ và trang liên hệ ===== */
+/* ===== CÁC MỤC TRONG TRANG CHỦ VÀ TRANG LIÊN HỆ ===== */
 main section {
   margin-bottom: 8px;
 }
@@ -207,7 +245,14 @@ figure {
 
 figcaption {
   font-size: 0.9em;
-  font-style: italic;
   color: #636e72;
   text-align: center;
+}
+
+/* ===== MÀN HÌNH NHỎ: xếp một cột ===== */
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;
+    gap: 0;
+  }
 }
